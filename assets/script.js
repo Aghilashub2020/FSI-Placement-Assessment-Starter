@@ -1,44 +1,78 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Aghilas" // HINT: Replace this with your own name!
-// We'll use these variables to track the counts of each cookie type
-// uptdat quantity 
-function updateQuantity(displayQuantity){
-    let quantity = document.querySelector('total-quantity')
-    quantity.innerHTML=displayQuantity
-}
-let totalquantity = document.querySelector('.totalquantity'= gb+cc+sugar)
+
+let yourName = 'Aghilas' 
+
+
+// We'll use these variables to track the counts of each cookie typ
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
 
 
-// selecting the element with an id of credit
-const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
-const gbPlusBtn = document.querySelector('#add-gb')
-const ccplusBtn = document.querySelector('#add-cc')
-const sugerplusBtn = document.querySelector('#add-suger')
-// negativeBtn
-const gbNegativBtn = document.querySelector('#minus-gb')
-const ccNegativeBtn = document.querySelector('#minus-cc')
-const sugerNegativeBtn = document.querySelector('#minus-sugar')
+
+let cookieTotal = gb + cc + sugar
+function updateTotal (ct1, ct2, ct3) {
+  cookieTotal = ct1 + ct2 + ct3 
+  console.log(cookieTotal)
+  document.getElementById('qty-total').innerHTML = cookieTotal
+}
+
+
 // Code to update name display
-credit.textContent = `Created by ${yourName}`
+document.getElementById('credit').textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
-gbPlusBtn.addEventListener('click', function () {
-        totalquantity = gb + 1
-        updateQuantity('Quantity:  {total}')
-        totalquantity.innerHTML = 'totalquantity'
+// positive function GingerBread
+document.getElementById('add-gb').addEventListener('click', function () {
+  gb = gb + 1
+  document.getElementById('qty-gb').innerHTML = gb
+  updateTotal(gb, cc, sugar)
+       
 
-        // HINT: You can delete this console.log after you no longer need it!
-        console.log('Gingerbread + button was clicked!')
+    })
+    // negativ function GingerBread
+    document.getElementById('minus-gb').addEventListener('click',function(){
+      if (gb > 0){
+        gb =gb - 1
+        document.getElementById('qty-gb').innerHTML = gb
+        updateTotal(gb, cc, sugar)
+      }
 
-        // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    })
+    // positive cc
+  document.getElementById('add-cc').addEventListener('click', function () {
+  cc= cc + 1
+  document.getElementById('qty-cc').innerHTML = cc
+  updateTotal(gb, cc, sugar)
+  
+  })
+  //negativ cc
+  document.getElementById('minus-cc').addEventListener('click',function(){
+      if (cc > 0){
+        cc =cc - 1
+        document.getElementById('qty-cc').innerHTML = gb
+        updateTotal(gb, cc, sugar)
+      }
+
+    })
+    // positiv sugar
+    document.getElementById('add-sugar').addEventListener('click', function() {
+  sugar = sugar + 1
+  document.getElementById('qty-sugar').innerHTML = sugar
+  updateTotal(gb, cc, sugar)
+       
+
+    })
+    document.getElementById('minus-sugar').addEventListener('click',function(){
+      if (sugar > 0){
+        sugar = sugar - 1
+        document.getElementById('qty-sugar').innerHTML = gb
+        updateTotal(gb, cc, sugar)
+      }
+
     })
 
+    
+    
+   
 
 
-// TODO: Hook up event listeners for the rest of the buttons
+
